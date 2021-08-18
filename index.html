@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
         <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
+        <link rel="stylesheet" href="css/leaflet-measure.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -35,6 +36,7 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
+        <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet-search.js"></script>
         <script src="data/Fiber3_1.js"></script>
         <script src="data/Tram2_2.js"></script>
@@ -61,6 +63,18 @@
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var measureControl = new L.Control.Measure({
+            position: 'topleft',
+            primaryLengthUnit: 'feet',
+            secondaryLengthUnit: 'miles',
+            primaryAreaUnit: 'sqfeet',
+            secondaryAreaUnit: 'sqmiles'
+        });
+        measureControl.addTo(map);
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .innerHTML = '';
+        document.getElementsByClassName('leaflet-control-measure-toggle')[0]
+        .className += ' fas fa-ruler';
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
@@ -101,8 +115,110 @@
                         <td colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? autolinker.link(feature.properties['name'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">length</th>\
-                        <td>' + (feature.properties['length'] !== null ? autolinker.link(feature.properties['length'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Fiber_Detail_Type</th>\
+                        <td>' + (feature.properties['Fiber_Detail_Type'] !== null ? autolinker.link(feature.properties['Fiber_Detail_Type'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F1'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F2'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F3'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F3'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F4'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F4'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F5'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F5'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F6'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F6'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F7'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F7'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F8'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F8'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F9'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F9'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F10'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F10'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F11'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F11'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F12'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F12'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F13'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F13'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F14'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F14'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F15'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F15'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F16'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F16'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F17'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F17'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F18'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F18'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F19'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F19'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F20'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F20'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F21'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F21'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F22'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F22'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F23'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F23'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F24'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F24'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F25'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F25'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F26'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F26'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F27'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F27'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F28'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F28'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F29'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F29'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F30'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F30'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F31'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F31'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Fiber_Detail_F32'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F32'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['length'] !== null ? autolinker.link(feature.properties['length'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Free_FO'] !== null ? autolinker.link(feature.properties['Free_FO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
