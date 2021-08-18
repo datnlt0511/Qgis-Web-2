@@ -59,7 +59,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[10.651062464607245,107.13687754541189],[10.984577321219383,107.59047754541125]]);
+        }).fitBounds([[10.644030403142875,107.12213337715187],[10.977553074533487,107.57573337715122]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -215,10 +215,12 @@
                         <td colspan="2">' + (feature.properties['Fiber_Detail_F32'] !== null ? autolinker.link(feature.properties['Fiber_Detail_F32'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['length'] !== null ? autolinker.link(feature.properties['length'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">length</th>\
+                        <td>' + (feature.properties['length'] !== null ? autolinker.link(feature.properties['length'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Free_FO'] !== null ? autolinker.link(feature.properties['Free_FO'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Free_FO</th>\
+                        <td>' + (feature.properties['Free_FO'] !== null ? autolinker.link(feature.properties['Free_FO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
